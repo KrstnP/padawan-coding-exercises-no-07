@@ -9,6 +9,15 @@ class Converter
 
   def main
     puts "Hello World"
+    choice = menu
+    puts choice
   end
 
+  def menu
+    puts "A. Convert Celsius to Fahrenheit"
+    puts "B. Convert Fahrenheit to Celsius"
+    puts "X. To Quit"
+    print "Enter your choice: "
+    return gets.chomp
+  end
 end
