@@ -20,6 +20,6 @@ class Converter
     puts "B. Convert Fahrenheit to Celsius"
     puts "X. To Quit"
     print "Enter your choice: "
-    return gets.chomp
+    return gets.chomp.downcase
   end
 end
