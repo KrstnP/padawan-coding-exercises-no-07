@@ -9,8 +9,10 @@ class Converter
 
   def main
     puts "Hello World"
-    choice = menu
-    puts choice
+    begin
+      choice = menu
+      puts choice
+    end until choice == "x"
   end
 
   def menu
