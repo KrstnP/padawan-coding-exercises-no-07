@@ -7,6 +7,11 @@ class Converter
     program = Converter.new.main
   end
 
+  def Celsius_to_Fahrenheit(celsius)
+    conversion = celsius * 1.8000 +32
+    return conversion
+  end
+
   def main
     puts "Hello World"
     begin
@@ -16,7 +21,7 @@ class Converter
         puts "Convert Celsius to Fahrenheit"
         print "Celsius: "
         celsius = gets.chomp.to_f
-        conversion = celsius * 1.8000 + 32.0
+        conversion = Celsius_to_Fahrenheit(celsius)
         puts "Fahrenheit: #{conversion}"
         puts ""
 
