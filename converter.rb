@@ -7,8 +7,13 @@ class Converter
     program = Converter.new.main
   end
 
-  def Celsius_to_Fahrenheit(celsius)
+  def celsius_to_fahrenheit(celsius)
     conversion = celsius * 1.8000 +32
+    return conversion
+  end
+
+  def fahrenheit_to_celsius(fahrenheit)
+    conversion = (fahrenheit - 32.0) / 1.8000
     return conversion
   end
 
@@ -21,7 +26,7 @@ class Converter
         puts "Convert Celsius to Fahrenheit"
         print "Celsius: "
         celsius = gets.chomp.to_f
-        conversion = Celsius_to_Fahrenheit(celsius)
+        conversion = celsius_to_fahrenheit(celsius)
         puts "Fahrenheit: #{conversion}"
         puts ""
 
@@ -30,7 +35,7 @@ class Converter
         puts "Convert Fahrenheit to Celsius"
         print "Fahrenheit: "
         fahrenheit = gets.chomp.to_f
-        conversion = (fahrenheit - 32.0) / 1.8000
+        conversion = fahrenheit_to_celsius(fahrenheit)
         puts "Celsius: #{conversion}"
         puts ""
 
@@ -48,6 +53,5 @@ class Converter
     puts ""
     print "Enter your choice: "
     return gets.chomp.downcase
-
   end
 end
