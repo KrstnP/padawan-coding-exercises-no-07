@@ -17,6 +17,16 @@ class Converter
     return conversion
   end
 
+  def lb_to_kg(lb)
+    conversion = (lb * 0.45359237)
+    return conversion
+  end
+
+  def kg_to_lb(kg)
+    conversion = (kg / 0.45359237)
+    return conversion
+  end
+
   def main
     puts "Hello World"
     begin
@@ -39,6 +49,24 @@ class Converter
         puts "Celsius: #{conversion}"
         puts ""
 
+      elsif choice.downcase == "c"
+        puts ""
+        puts "Convert lb to kg"
+        print "lb: "
+        lb = gets.chomp.to_f
+        conversion = lb_to_kg(lb)
+        puts "kg: #{conversion}"
+        puts ""
+
+      elsif choice.downcase == "d"
+        puts ""
+        puts "Convert kg to lb"
+        print "kg: "
+        kg = gets.chomp.to_f
+        conversion = kg_to_lb(kg)
+        puts "lb: #{conversion}"
+        puts ""
+
       else
         puts "It's not on the above menu"
         puts ""
@@ -49,6 +77,8 @@ class Converter
   def menu
     puts "A. Convert Celsius to Fahrenheit"
     puts "B. Convert Fahrenheit to Celsius"
+    puts "C. Convert lb to kg"
+    puts "D. Convert kg to lb"
     puts "X. To Quit"
     puts ""
     print "Enter your choice: "
