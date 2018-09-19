@@ -27,54 +27,106 @@ class Converter
     return conversion
   end
 
+  def is_number?(string)
+    true if Float(string) rescue return false
+  end
+
   def main
-    puts "Hello World"
     begin
-      choice = menu
+      choice               = menu
+      converted_celsius    = 0
+      converted_fahrenheit = 0
+      converted_lb         = 0
+      converted_kg         = 0
+
       if choice.downcase == "a"
-        puts ""
-        puts "Convert Celsius to Fahrenheit"
-        print "Celsius: "
-        celsius = gets.chomp.to_f
-        conversion = celsius_to_fahrenheit(celsius)
+        loop do
+          puts ""
+          puts "Convert Celsius to Fahrenheit"
+          print "Celsius: "
+          celsius = gets.chomp
+          if is_number?(celsius)
+            #convert
+            converted_celsius = celsius.to_f
+            break
+          else
+            # display message
+            puts "Please enter a number value"
+          end
+        end
+        conversion = celsius_to_fahrenheit(converted_celsius)
         puts "Fahrenheit: #{conversion}"
         puts ""
 
       elsif choice.downcase == "b"
-        puts ""
-        puts "Convert Fahrenheit to Celsius"
-        print "Fahrenheit: "
-        fahrenheit = gets.chomp.to_f
-        conversion = fahrenheit_to_celsius(fahrenheit)
+        loop do
+          puts ""
+          puts "Convert Fahrenheit to Celsius"
+          print "Fahrenheit: "
+          fahrenheit = gets.chomp
+          if is_number?(fahrenheit)
+            #convert
+            converted_fahrenheit = fahrenheit.to_f
+            break
+          else
+            # display message
+            puts "Please enter a number value"
+          end
+        end
+        conversion = fahrenheit_to_celsius(converted_fahrenheit)
         puts "Celsius: #{conversion}"
         puts ""
 
       elsif choice.downcase == "c"
-        puts ""
-        puts "Convert lb to kg"
-        print "lb: "
-        lb = gets.chomp.to_f
-        conversion = lb_to_kg(lb)
+        loop do
+          puts ""
+          puts "Convert lb to kg"
+          print "lb: "
+          lb = gets.chomp
+          if is_number?(lb)
+            #convert
+            converted_lb = lb.to_f
+            break
+          else
+            # display message
+            puts "Please enter a number value"
+          end
+        end
+        conversion = lb_to_kg(converted_lb)
         puts "kg: #{conversion}"
         puts ""
 
       elsif choice.downcase == "d"
-        puts ""
-        puts "Convert kg to lb"
-        print "kg: "
-        kg = gets.chomp.to_f
-        conversion = kg_to_lb(kg)
+        loop do
+          puts ""
+          puts "Convert kg to lb"
+          print "kg: "
+          kg = gets.chomp
+          if is_number?(kg)
+            #convert
+            converted_kg = kg.to_f
+            break
+          else
+            # display message
+            puts "Please enter a number value"
+          end
+        end
+        conversion = kg_to_lb(converted_kg)
         puts "lb: #{conversion}"
         puts ""
 
       else
-        puts "It's not on the above menu"
-        puts ""
+        if choice != "x"
+          puts "It's not on the above menu"
+          puts ""
+
+        end
       end
-    end until choice == "x"
+    end
   end
 
   def menu
+    puts ""
     puts "A. Convert Celsius to Fahrenheit"
     puts "B. Convert Fahrenheit to Celsius"
     puts "C. Convert lb to kg"
